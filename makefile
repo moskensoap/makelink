@@ -1,4 +1,4 @@
-cc=cc
+cc=gcc
 cflags=-O3 -s
 
 make.exe:main.c

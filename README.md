@@ -14,7 +14,7 @@ To address these issues and maintain the familiar Linux workflow, the best solut
 
 # Installation
 
-See [MSYS2 new package guide](https://www.msys2.org/dev/new-package/), build the package and run:
+See the [MSYS2 new package guide](https://www.msys2.org/dev/new-package/), build the package and run:
 
     pacman -U *.pkg.tar.zst
 

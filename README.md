@@ -14,6 +14,10 @@ Create make.exe linking to mingw32-make.exe in the ucrt64, mingw32, mingw64, cla
 
     makepkg-mingw --cleanbuild --syncdeps --force --noconfirm
 
+To solve CRLF error, you may run:
+
+    dos2unix PKGBUILD
+
 4.You should check the downloaded source code files, ./src/makelink-<version>/main.c and ./src/makelink-<version>/Makefile, to ensure everything is correct.
 
 5.To install the package, run:

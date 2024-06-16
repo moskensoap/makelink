@@ -1,24 +1,22 @@
-# Motivation
-In the MSYS2 environment, users often copy and rename `mingw32-make.exe` to `make.exe` to maintain a Linux-like `make` command behavior on Windows. However, this approach has several drawbacks:
-
-1. The renamed `make.exe` cannot be managed by `pacman`, the package manager for MSYS2.
-2. Setting aliases or creating alias scripts like `make.cmd` works in shells but is not recognized by tools such as VS Code's Make extension, which requires an actual `make.exe`.
-
-# Solution
-To address these issues and maintain the familiar Linux workflow, a good idea is to compile a new `make.exe` that simply forwards all command-line arguments to `mingw32-make.exe` and executes it.
-
-## Comparison with (msys)make.exe
-
-- `(msys)make.exe` outputs Unix-like directory structures, while `mingw32-make.exe` (and the new `make.exe`) outputs Windows local directory structures.
-- `(msys)make.exe` can execute Unix-style shell scripts directly, whereas `mingw32-make.exe` might require Windows batch scripts or MinGW-specific tools.
-
-## Potential conflicts
-
-Each MSYS2 sub-environment isolates various `make.exe` instances based on the PATH environment variable's priority, ensuring no conflicts occur.
+# Instruction
+Create make.exe linking to mingw32-make.exe in the UCRT64, mingw32, mingw64, clang32, clang64, and clangarm64 sub-environments of MSYS2. This project will help you create a local pacman package to install, setting `make.exe` as an alias of `mingw32-make.exe` to build a common environment between Windows and Linux.
 
 # Installation
+1.Clone this project to your computer by running:
 
-See the [MSYS2 new package guide](https://www.msys2.org/dev/new-package/), build the package and run:
+    git clone https://github.com/moskensoap/makelink.git
+
+2.prepare build enviroment, See the [MSYS2 new package guide](https://www.msys2.org/dev/new-package/) and run
+
+    pacman -S --needed base-devel
+
+3.To build the package, start a shell in an environment you want to build for, change the working directory to the directory of the PKGBUILD(i.e. run `cd makelink`), and run:
+
+    makepkg-mingw --cleanbuild --syncdeps --force --noconfirm
+
+4.You should check the downloaded source code files, ./src/makelink-<version>/main.c and ./src/makelink-<version>/Makefile, to ensure everything is correct.
+
+5.To install the package, run:
 
     pacman -U *.pkg.tar.zst
 

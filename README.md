@@ -1,12 +1,12 @@
 # Instruction
-Create make.exe linking to mingw32-make.exe in the UCRT64, mingw32, mingw64, clang32, clang64, and clangarm64 sub-environments of MSYS2. This project will help you create a local pacman package to install, setting `make.exe` as an alias of `mingw32-make.exe` to build a common environment between Windows and Linux.
+Create make.exe linking to mingw32-make.exe in the ucrt64, mingw32, mingw64, clang32, clang64, and clangarm64 sub-environments of MSYS2. This project will help you create a local pacman package to install, setting `make.exe` as an alias of `mingw32-make.exe` to build a common environment between Windows and Linux.
 
 # Installation
 1.Clone this project to your computer by running:
 
     git clone https://github.com/moskensoap/makelink.git
 
-2.prepare build enviroment, See the [MSYS2 new package guide](https://www.msys2.org/dev/new-package/) and run
+2.Prepare build enviroment, See the [MSYS2 new package guide](https://www.msys2.org/dev/new-package/) and run
 
     pacman -S --needed base-devel
 

@@ -18,7 +18,7 @@ To solve CRLF error, you may run:
 
     dos2unix PKGBUILD
 
-4.You should check the downloaded source code files, ./src/makelink-<version>/main.c and ./src/makelink-<version>/Makefile, to ensure everything is correct.
+4.You should check the downloaded source code files, `./src/makelink-version/main.c` and `./src/makelink-version/Makefile`, to ensure everything is correct.
 
 5.To install the package, run:
 

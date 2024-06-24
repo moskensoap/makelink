@@ -15,7 +15,7 @@ makedepends=("${MINGW_PACKAGE_PREFIX}-cc"
              "${MINGW_PACKAGE_PREFIX}-make")
 depends=("${MINGW_PACKAGE_PREFIX}-make")
 source=("https://github.com/moskensoap/makelink/releases/download/${pkgver}/makelink-${pkgver}.tar.gz")
-sha256sums=('63317eecc226a6887bf5139008f5928978523bdcf3c0b314972fd1fd708bba8d')
+sha256sums=('b063a693c8bb618a58515ac742d1903d3150ce75fc6b82414e9c405b9059d916')
 
 
 build() {

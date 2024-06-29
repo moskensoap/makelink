@@ -14,14 +14,19 @@ license=('MIT')
 makedepends=("${MINGW_PACKAGE_PREFIX}-cc"
              "${MINGW_PACKAGE_PREFIX}-make")
 depends=("${MINGW_PACKAGE_PREFIX}-make")
-source=("https://github.com/moskensoap/makelink/releases/download/${pkgver}/makelink-${pkgver}.tar.gz")
-sha256sums=('82b74c752fdd91ce20cea9e109de31814d71990e2e1a35526d92d206fe0b905b')
+source=("main.c"
+        "makefile"
+        "LICENSE")
+sha256sums=('9ae498b0b650332fa431ea06409709085e857ce37ee82a1538fa19af0d1f4809'
+            'fa230e0ad61109d48d06dff9bff7947acbe348705060ae688b10e7da111d4850'
+            'ae1ac950060baad6e25e65f23e92bad0e0cb9e8de258cafcec5d25cba861af4a')
 
 
 build() {
-  cd "${srcdir}/${_realname}-${pkgver}"
   mkdir -p "${srcdir}/build-${MSYSTEM}" && cd "${srcdir}/build-${MSYSTEM}"
-  cp -r "${srcdir}/${_realname}-${pkgver}"/* ./
+  cp "${srcdir}/main.c" ./
+  cp "${srcdir}/makefile" ./
+  cp "${srcdir}/LICENSE" ./
   mingw32-make
 }
 
@@ -29,5 +34,5 @@ package() {
   cd "${srcdir}/build-${MSYSTEM}"
 
   install -D -m755 "${srcdir}/build-${MSYSTEM}/make.exe" "${pkgdir}${MINGW_PREFIX}/bin/make.exe"
-  install -Dm644 "${srcdir}/${_realname}-${pkgver}/LICENSE" "${pkgdir}${MINGW_PREFIX}/share/licenses/${_realname}/LICENSE"
+  install -Dm644 "${srcdir}/build-${MSYSTEM}/LICENSE" "${pkgdir}${MINGW_PREFIX}/share/licenses/${_realname}/LICENSE"
 }

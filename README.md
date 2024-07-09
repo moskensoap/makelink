@@ -1,6 +1,8 @@
 # Instruction
 Create make.exe linking to mingw32-make.exe in the ucrt64, mingw32, mingw64, clang32, clang64, and clangarm64 sub-environments of MSYS2. This project will help you create a local pacman package to install, setting `make.exe` as an alias of `mingw32-make.exe` to build a common environment between Windows and Linux.
 
+Want more `linker` or `wrappers`? Go another [project](https://github.com/moskensoap/MUR-packages) of mine.
+
 # Installation
 1.Clone this project to your computer by running:
 
